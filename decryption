@@ -1,0 +1,23 @@
+s=input()
+n=s.count('[')+s.count(']')
+while n!=0:
+    i=s.index('[')
+    c=0
+    j=i
+    while c>=0:
+       j=j+1
+       if s[j]=='[':
+           c=c+1
+       elif s[j]==']':
+           c=c-1
+    sa=s[:i-1]
+    sb=s[i+1:j]
+    sc=s[j+1:]
+    k=s[i-1]
+    if k.isdigit():
+        sb=sb*int(k)
+    else:
+        sb=k+sb
+    s=sa+sb+sc
+    n=s.count('[')+s.count(']')
+print(s)
