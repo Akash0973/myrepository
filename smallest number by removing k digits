@@ -1,0 +1,18 @@
+n,k=input().split()
+k=int(k)
+dig=[int(i) for i in n]
+fin=[]
+c=0
+while k!=0:
+    if len(dig)==k:
+        c=1
+        break
+    t=dig[:k+1]
+    m=min(t)
+    k=k-t.index(m)
+    fin.append(m)
+    dig=dig[t.index(m)+1:]
+if c==0:
+    fin=fin+dig
+fin=[str(i) for i in fin]
+print(''.join(fin))
