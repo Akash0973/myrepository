@@ -1,0 +1,21 @@
+x=input().split()
+n=len(x)
+t=x[0]
+for i in x:
+    if len(i)<len(t):
+        t=i
+for i in range(0,len(t)):
+    l=len(t)-i
+    for j in range(0,i+1):
+        t1=t[j:j+l]
+        c=0
+        for k in x:
+            if t1 in k:
+                c=c+1
+        if c==n:
+            print('Least common string is:',t1)
+            break
+    if c==n:
+        break
+else:
+    print('No common string')
