@@ -1,0 +1,13 @@
+def ans(s):
+    if len(s)==1:
+        return s
+    s1=s[0]
+    s2=s[1:]
+    prev=ans(s2)
+    p1=[s1+i for i in prev]
+    p2=[s1+' '+i for i in prev]
+    return(p1+p2)
+s=input()
+lis=ans(s)
+for i in lis:
+    print(i)
