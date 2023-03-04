@@ -1,0 +1,13 @@
+memo={}
+def counting(n):
+    if n=='':
+        return 1
+    if n in memo:
+        return memo[n]
+    c=counting(n[1:])
+    if len(n)>1 and int(n[:2])<27:
+        c=c+counting(n[2:])
+    memo[n]=c
+    return c
+n=input()
+print(counting(n))
