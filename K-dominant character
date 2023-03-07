@@ -1,0 +1,22 @@
+def kdom(s):
+    mini=1
+    maxi=len(s)
+    while mini<maxi:
+        mid=(mini+maxi)//2
+        status=0
+        for i in set(s):
+            if isdom(s,mid,i):
+                status=1
+                break
+        if status:
+            maxi=mid
+        else:
+            mini=mid+1
+    return mini
+def isdom(s,k,c):
+    for i in range(0,len(s)-k+1):
+        if c not in s[i:i+k]:
+            return 0
+    return 1
+s=input()
+print(kdom(s))
