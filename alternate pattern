@@ -1,0 +1,23 @@
+a,b=[int(i) for i in input().strip().split()]
+arr=[]
+for i in range(a):
+    x=[i for i in input()]
+    arr.append(x)
+c1=0
+c2=0
+ini1='R'
+ini2='G'
+for i in range(0,a):
+    for j in range(0,b):
+        if arr[i][j]==ini1 and ini1=='R':
+            c2=c2+5
+        elif arr[i][j]==ini2 and ini2=='G':
+            c1=c1+3
+        elif arr[i][j]==ini1 and ini1=='G':
+            c2=c2+3
+        elif arr[i][j]==ini2 and ini2=='R':
+            c1=c1+5
+        t=ini1
+        ini1=ini2
+        ini2=t
+print(min(c1,c2))
