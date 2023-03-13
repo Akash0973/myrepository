@@ -1,0 +1,19 @@
+def comb(n,x,c):
+    if n in x:
+        ind=x.index(n)
+        c[ind]+=1
+        return [c,1]
+    if n<min(x):
+        return [c,0]
+    for i in x:
+        if comb(n-i,x,c)[1]:
+            ind=x.index(i)
+            c[ind]+=1
+            return [c,1]
+        else:
+            return [c,0]
+n,s=[int(i) for i in input().strip().split()]
+x=[int(i) for i in input().strip().split()]
+x=sorted(x,reverse=1)
+c=[0]*n
+print(sum(comb(s,x,c)[0]))
