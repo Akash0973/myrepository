@@ -1,0 +1,30 @@
+def subarr(arr,x1,y1,x2,y2):
+    newarr=[]
+    for i in range(y1,y2+1):
+        x=arr[i][x1:x2+1]
+        newarr.append(x)
+    return newarr
+def sumarr(x):
+    s=0
+    for i in x:
+        for j in i:
+            if j==1:
+                s+=1
+    return s
+n,m=[int(i) for i in input().strip().split()]
+arr=[]
+for i in range(n):
+    x=[int(i) for i in input().strip().split()]
+    arr.append(x)
+maxsum=0
+maxarr=[]
+for i in range(n):
+    for j in range(m):
+        for k in range(n-1,i-1,-1):
+            for l in range(m-1,j-1,-1):
+                newarr=subarr(arr,i,j,k,l)
+                if sumarr(newarr)==len(newarr)*len(newarr[0]) and sumarr(newarr)>maxsum:
+                    maxarr=newarr.copy()
+                    maxsum=sumarr(newarr)
+for i in maxarr:
+    print(*i)
